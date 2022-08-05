@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "name": "http://'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')",
+            "request": "launch",
+            "url": "http://'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')"
+        }
+    ]
+}

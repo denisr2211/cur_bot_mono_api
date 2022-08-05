@@ -1,0 +1,23 @@
+{
+  "name": "nbu_telegram_bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js" 
+  },
+  "author": "$$$",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "currency-codes": "^2.1.0",
+    "dedent-js": "^1.0.1",
+    "express": "^4.18.1",
+    "node-cache": "^5.1.2",
+    "telegraf": "^4.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "description": ""
+}
