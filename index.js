@@ -58,7 +58,6 @@ bot.hears(/^[A-Z]+$/i, async (ctx) => {
 RATE BUY: *${foundCurrency.rateBuy}*  
 RATE SELL: *${foundCurrency.rateSell}* `);
     } catch (error) {
-        console.log(ctx, error);
         return ctx.reply(error);
     }
 });
