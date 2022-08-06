@@ -3,6 +3,7 @@ const { Telegraf } = require('telegraf');
 const cc = require('currency-codes');
 const NodeCache = require( "node-cache" );
 
+const Currency = require('./Currency');
 
 const myCache = new NodeCache( { stdTTL: 100, checkperiod: 120 } );
 
@@ -47,8 +48,6 @@ async function getCurrency() {
     return currencies;
 }
 
-
-
 bot.hears(/^[A-Z]+$/i, async (ctx) => {
     
     const clientCurCode = ctx.message.text;
@@ -62,19 +61,21 @@ bot.hears(/^[A-Z]+$/i, async (ctx) => {
     try {
         let data = await getCurrency();
 
+        // console.log(getCurrency());
+
         const foundCurrency = data.find((cur) => {
             return cur.getCode().toString() === currency.number;
         });
 
         console.log({foundCurrency});
-        if (!foundCurrency || !foundCurrency.getRate() || !foundCurrency.getRate()) {
+        if (!foundCurrency.getCode() || !foundCurrency.getLetterCode()) {
             return ctx.reply('Currency didnt found in Monobank API');
         }
 
         return ctx.replyWithMarkdown(
-`CURRENCY: *${currency.getLetterCode()}*  
-RATE BUY: *${foundCurrency.getRate()}*  
-RATE SELL: *${foundCurrency.getRate()}* `);
+`Валюта: *${foundCurrency.getLetterCode()}*  
+Цифровой код: *${foundCurrency.getCode()}*  
+Курс: *${foundCurrency.getRate()}* `);
     } catch (error) {
         return ctx.reply(error);
     }
