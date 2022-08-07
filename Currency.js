@@ -24,3 +24,7 @@ class Currency {
 
 
 module.exports = Currency;
+
+
+
+// https://t.me/NBUCurrencyConverter_bot
